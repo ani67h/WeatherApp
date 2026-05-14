@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Weather App</title>
+
+</head>
+
+<body>
+
+    <h1>Simple Weather App</h1>
+
+    <form action="/getweather" method="POST">
+
+        <input
+            type="text"
+            name="city"
+            placeholder="Enter city name"
+        >
+
+        <button type="submit">
+            Get Weather
+        </button>
+
+    </form>
+
+    {% if data %}
+
+        <h2>{{ data.location }}</h2>
+
+        <p>
+            Country: {{ data.country }}
+        </p>
+
+        <p>
+            Temperature: {{ data.temp }} °C
+        </p>
+
+        <p>
+            Condition: {{ data.condition }}
+        </p>
+
+        <img src="https:{{ data.icon }}">
+
+    {% endif %}
+
+    {% if error %}
+
+        <p>{{ error }}</p>
+
+    {% endif %}
+
+</body>
+
+</html>
